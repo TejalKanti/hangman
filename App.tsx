@@ -47,7 +47,11 @@ export default function App() {
         }
       </ScrollView>
         {
-          
+          (gameOver || gameWon) && (
+          <TouchableOpacity>
+            <Text> PLay Again </Text>
+          </TouchableOpacity>
+          )
         }
     </View>
   );
