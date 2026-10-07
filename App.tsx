@@ -37,9 +37,18 @@ export default function App() {
         )
       }
       <ScrollView>
-        
+        { ALPHABET.map((letter) => (
+          <TouchableOpacity
+          key={letter}
+          >
+            <Text> {letter} </Text>
+          </TouchableOpacity>
+        ))
+        }
       </ScrollView>
-
+        {
+          
+        }
     </View>
   );
 };
