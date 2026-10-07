@@ -14,8 +14,35 @@ export default function App() {
 
   const [remainGuesses, setRemainingGuesses] = useState<number>(NUMOFGUESSES);
 
-  const [gameOver, setGmeOver] = useState<boolean>(false);
+  const [gameOver, setGameOver] = useState<boolean>(false);
   const [gameWon, setGameWon] = useState<boolean>(false);
+
+  const fetchRandomWord = async () => {
+    try {
+      const response = await fetch('https://random-word-api.herokuapp.com/word?number=1', undefined);
+      
+      const data = await response.json();
+      
+      const fetchedWord = data[0].toUpperCase();
+      
+      setWord(fetchedWord);
+
+      setDisplayWord('_'.repeat(fetchedWord.lenght));
+
+      setUsedLetters([]);
+      setRemainingGuesses(NUMOFGUESSES);
+      setGameOver(false);
+      setGameWon(false);
+
+    } catch (error) {
+      console.error('Error fetching random word', error);
+    }
+  };
+
+  const handleLetterPress = (letter: string) => {
+    // validate - if the letter is used or game is over/won = return
+    // 
+  }
 
   return (
     <View>
