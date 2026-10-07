@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const NUMOFGUESSES = 6;
 
+// https://random-word-api.herokuapp.com/word?number=1
+
 export default function App() {
 
   const [word, setWord] = useState<string>('');
