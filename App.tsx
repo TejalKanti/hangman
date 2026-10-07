@@ -18,11 +18,31 @@ export default function App() {
   const [gameWon, setGameWon] = useState<boolean>(false);
 
   return (
-    <View style={styles.container}>
+    <View>
+      <Text> Hangman</Text>
+      <Text>
+        { displayWord ? displayWord.split('').join('  ') : 'Press "Start Game"'} 
+      </Text>
+      {
+        !displayWord ? (
+          <TouchableOpacity>
+            <Text> Start Game</Text>
+          </TouchableOpacity>
+        ) : gameOver ? (
+          <Text> Game Over! The word was {word}</Text>
+        ) : gameWon ? (
+          <Text> Game Won</Text>
+        ) : (
+          <Text> Remaining Guesses: {remainingGuesses}</Text>
+        )
+      }
+      <ScrollView>
+        
+      </ScrollView>
 
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
