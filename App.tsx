@@ -25,7 +25,7 @@ export default function App() {
       </Text>
       {
         !displayWord ? (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={fetchRandomWord}>
             <Text> Start Game</Text>
           </TouchableOpacity>
         ) : gameOver ? (
@@ -40,6 +40,8 @@ export default function App() {
         { ALPHABET.map((letter) => (
           <TouchableOpacity
           key={letter}
+          onPress={() => handleLetterPress(letter)}
+          disabled={usedLetters.includes(letter) || gameWon || gameOver}
           >
             <Text> {letter} </Text>
           </TouchableOpacity>
@@ -48,8 +50,8 @@ export default function App() {
       </ScrollView>
         {
           (gameOver || gameWon) && (
-          <TouchableOpacity>
-            <Text> PLay Again </Text>
+          <TouchableOpacity onPress={fetchRandomWord}>
+            <Text> Play Again </Text>
           </TouchableOpacity>
           )
         }
