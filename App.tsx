@@ -41,7 +41,11 @@ export default function App() {
 
   const handleLetterPress = (letter: string) => {
     // validate - if the letter is used or game is over/won = return
-    // 
+    // update the usedLetters array with the letters that have been pressed
+    // decide if the letter is in the word, if so update the displayWord - figure out where the letter is and replace the _ with the letter
+    // update the displayWord on the screen
+    // if the updated display = to the word then you have won, else decrement the number of guesses
+    // if the number of guesses = 0 then you lost = game over
   }
 
   return (
